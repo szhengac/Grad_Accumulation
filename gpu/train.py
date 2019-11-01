@@ -65,7 +65,7 @@ if not is_training:
     if grad_acc:
         model.collect_params().setattr('grad_req', 'add')
     for v in model.collect_params().values():
-        v.data()[:] /= 1e4
+        v.data()[:] /= 1
 step = 0
 for _ in range(10000):
     for sample, label in data:
