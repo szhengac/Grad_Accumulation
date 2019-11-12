@@ -70,8 +70,8 @@ step = 0
 for _ in range(10000):
     for sample, label in data:
         step += 1
-        sample = mx.nd.expand_dims(sample, axis=0).as_in_context(ctx)
-        label = mx.nd.expand_dims(label, axis=0).as_in_context(ctx)
+        sample = sample.as_in_context(ctx)
+        label = label.as_in_context(ctx)
         with mx.autograd.record():
             output = model(sample)
             ls = loss(output, label).mean()
